@@ -1,0 +1,16 @@
+{
+  "name": "youtube-clone-backend-project",
+  "version": "1.0.0",
+  "description": "A Youtube BackEnd Clone Project",
+  "keywords": [
+    "javascript",
+    "backend"
+  ],
+  "license": "ISC",
+  "author": "Joy Kharinta",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
