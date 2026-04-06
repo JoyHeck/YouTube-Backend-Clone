@@ -42,7 +42,7 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Password is required."],
     },
-    refereshToken: {
+    refreshToken: {
       type: String,
     },
   },
@@ -59,7 +59,7 @@ userSchema.pre("save", async function () {
 });
 
 userSchema.methods.isPasswordCorrect = async function (password) {
-  return await bcrypt.compare(password, this.password, 10);
+  return bcrypt.compare(password, this.password);
 };
 
 // JWT Tokenization for user model

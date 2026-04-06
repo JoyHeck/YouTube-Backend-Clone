@@ -6,7 +6,7 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 
 const generateAccessAndRefreshTokens = async (userID) => {
   try {
-    const user = await User.findById(userId);
+    const user = await User.findById(userID);
     const accessToken = user.generateAccessToken();
     const refreshToken = user.generateRefreshToken();
 
@@ -94,7 +94,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
   const { email, username, password } = req.body;
 
-  if (!username || !email) {
+  if (!(username || !email)) {
     throw new ApiError(400, "username or email is required.");
   }
 
@@ -166,4 +166,4 @@ const logOutUser = asyncHandler(async (req, res) => {
   .json(new ApiResponse(200, {}, "User Logged Out"))
 });
 
-export { registerUser, loginUser };
+export { registerUser, loginUser, logOutUser };
